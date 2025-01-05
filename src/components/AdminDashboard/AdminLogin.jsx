@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./AdminLogin.module.css"; // Import CSS module
+import { useAuth } from "../AuthContext";
 
 const AdminLogin = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ const AdminLogin = () => {
     });
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { login } = useAuth();
+
+    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,7 +26,9 @@ const AdminLogin = () => {
 
         try {
             const response = await axios.post("http://localhost:8000/admin-dashboard/admin/login/", formData);
+            console.log(response.data)
             if (response.status === 200) {
+                login({ token: response.data.token,username: response.data.username, role: "admin" });
                 navigate("/admin-dashboard");
             }
         } catch (err) {
@@ -66,7 +72,7 @@ const AdminLogin = () => {
                                 className={styles.input}
                             />
                         </div>
-                        <button type="submit" className={styles.button}>
+                        <button type="submit" className={styles.button} >
                             Login
                         </button>
                     </form>

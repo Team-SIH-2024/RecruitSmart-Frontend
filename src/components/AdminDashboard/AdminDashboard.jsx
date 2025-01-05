@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminDashboard.module.css";
+import { useAuth } from "../AuthContext";
+import JobList from "./JobList";
+import CandidatesPerformance from './CandidatesPerformance.jsx'
+
 
 const AdminDashboard = () => {
   const [jobPosts, setJobPosts] = useState([]);
@@ -15,6 +19,9 @@ const AdminDashboard = () => {
   const [discipline, setDiscipline] = useState("");
   const [areaOfExpertise, setAreaOfExpertise] = useState("");
   const navigate = useNavigate();
+
+  const {authState,logout } = useAuth();
+
   useEffect(() => {
     fetch("http://127.0.0.1:8000/admin-dashboard/list-job-posts/")
       .then((response) => response.json())
@@ -25,11 +32,10 @@ const AdminDashboard = () => {
   
   const handleLogout = () => {
     // Clear session or token (if using JWT or any session-based authentication)
-    localStorage.removeItem("authToken"); // Example of clearing an auth token from localStorage
-    sessionStorage.removeItem("authToken"); // Or sessionStorage
-
+     // Or sessionStorage
+     logout();
     // Redirect to login page using navigate
-    navigate("/"); // This will navigate to the login page
+    navigate("/adminlogin"); // This will navigate to the login page
   };
   const handleCreateJobPost = async (e) => {
     e.preventDefault();
@@ -121,6 +127,12 @@ const AdminDashboard = () => {
       case "createJobs":
         return (
           <div>
+            <h1>Admin Dashboard</h1>
+      {authState?.username ? (
+        <p>Welcome, {authState.username}!</p> // Display username
+      ) : (
+        <p>Welcome, Admin!</p>
+      )}
             <h1>Create Job Post</h1>
             <form onSubmit={handleCreateJobPost} className={styles.jobForm}>
               <div className={styles.formGroup}>
@@ -199,6 +211,10 @@ const AdminDashboard = () => {
             {message && <p>{message}</p>}
           </div>
         );
+      case "jobList":
+        return <JobList />;
+      case "CandidatesPerformance":
+        return <CandidatesPerformance />;
       default:
         return <p>Select an option from the sidebar.</p>;
     }
@@ -211,7 +227,10 @@ const AdminDashboard = () => {
         <hr />
         <ul>
           <li onClick={() => setActivePage("createJobs")}>Create Jobs</li>
-          <li onClick={() => setActivePage("selectedUsers")}>Selected Users</li>
+          {/* <li onClick={() => setActivePage("selectedUsers")}>Selected Users</li> */}
+          <li onClick={() => setActivePage("jobList")}>Job List</li>
+          <li onClick={() => setActivePage("CandidatesPerformance")}>Performance Metrics</li>
+
           <li onClick={handleLogout}>Logout</li>
         </ul>
       </aside>

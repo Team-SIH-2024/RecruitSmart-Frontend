@@ -12,27 +12,34 @@ import UserLogin from './components/UserDashboard/LoginUser/UserLogin.jsx';
 import UserSignup from './components/UserDashboard/SignupUser/UserSignup';
 import InterviewPage from "./components/UserDashboard/Simulation/Interviewpage"; // Ensure this path is correct
 import ResumeUploadPage from "./components/UserDashboard/Simulation/ResumeUploadPage.jsx";
-import ExpertUpload from './components/expertdashboard/ExpertUpload.jsx';
+import ExpertDashboard from './components/expertdashboard/ExpertDashboard.jsx';
 
 
+
+import { AuthProvider } from './components/AuthContext';
+import PrivateRoute from './components/PrivateRoute.js';
+import { UserAuthProvider } from "./components/UserDashboard/Auth/UserAuthContext.js";
+import UserPrivateRoute from "./components/UserDashboard/Auth/UserPrivateRoute.js";
 function App(){
   const isAllowed = true;
   return (
+    <AuthProvider>
+    <UserAuthProvider>    
     <Router>
       <Routes>
         <Route path="/InterviewPage/:command_id" element={<InterviewPage />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/admin-dashboard" element={<PrivateRoute ><AdminDashboard /></PrivateRoute >}/>
         <Route path="/" element={<Home />} />
         <Route path="/usersignup" element={<UserSignup />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
-        <Route path="/UserDashboard" element={<UserDashboard />} />
-        <Route path="/expert" element={<ExpertUpload />} />
+        <Route path="/UserDashboard" element={<UserPrivateRoute><UserDashboard /></UserPrivateRoute>} />
+        <Route path="/expert" element={<ExpertDashboard />} />
         <Route path="/upload-resume" element={<ResumeUploadPage />} />
         <Route path="/upload-resume/:command_id" element={<ResumeUploadPage />} />
         <Route path="/CompatibilityTest/:command_id" element={<CompatibilityTest />} />
         <Route path="/feedback" element={<FeedbackPage  />} /> {/* Add the feedback route */}
-        <Route path="/ExpertUpload" element={<ExpertUpload  />} /> {/* Add the feedback route */}
+        
 
                 <Route
           path="/Dashboard"
@@ -45,6 +52,8 @@ function App(){
 
       </Routes>
     </Router>
+    </UserAuthProvider> 
+    </AuthProvider>
   );
 }
 

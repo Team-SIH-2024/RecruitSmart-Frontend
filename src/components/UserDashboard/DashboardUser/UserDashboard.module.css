@@ -1,152 +1,83 @@
-/* UserDashboard.module.css */
-.dashboardContainer {
+/* General layout */
+.dashboard {
     display: flex;
     min-height: 100vh;
-    background-color: #f4f6f9;
+    background-color: #f5f5f5; /* Light Grey */
+    color: #212121; /* Dark Grey */
+    font-family: Arial, sans-serif;
 }
 
+/* Sidebar styles */
 .sidebar {
-    width: 250px;
-    background-color: #457b9d;
-    color: #ecf0f1;
+    width: 300px; /* Fixed width for the sidebar */
+    background-color: #1e88e5; /* Blue */
+    color: white;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking of the sidebar */
 }
 
-.sidebarTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #fff;
-    letter-spacing: 1px;
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
 }
 
-.sidebarNav {
+.divider {
+    border: none;
+    height: 1px;
+    background-color: white;
+    margin: 1em 0;
+}
+
+.navList {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-.sidebarItem {
-    margin-bottom: 15px;
-}
-
-.sidebarLink {
-    color: #bdc3c7;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+.navItem {
     padding: 10px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sidebarLink:hover {
-    background-color: #34495e;
-    color: #fff;
-    transform: translateX(5px);
+.navItem:hover {
+    background-color: #1565c0; /* Slightly darker blue */
 }
 
+.active {
+    background-color: #1565c0; /* Highlight active item */
+}
+
+/* Main content styles */
 .mainContent {
     flex-grow: 1;
     padding: 20px;
-    background-color: #f4f6f9;
-    overflow-y: auto;
+    background-color: #ffffff; /* White background */
+    border-left: 1px solid #e0e0e0; /* Light grey border */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
 }
 
-.header {
-    background-color: #457b9d;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Text styles */
+.mainContent p {
+    color: #757575; /* Muted Grey for secondary text */
 }
 
-.headerTitle {
-    margin: 0;
-    font-size: 1.8rem;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
 
-.jobsSection {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
-    padding: 20px;
-}
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
 
-.jobsSectionTitle {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-}
-
-.jobList {
-    list-style: none;
-    padding: 0;
-}
-
-.jobCard {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
-    border-left: 4px solid #457b9d;
-}
-
-.jobCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.jobTitle {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.jobDescription {
-    color: #7f8c8d;
-    margin-bottom: 10px;
-}
-
-.jobDate {
-    color: #95a5a6;
-    font-size: 0.9rem;
-}
-
-.takeInterviewBtn {
-    background-color: #457b9d;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.takeInterviewBtn:hover {
-    background-color: #457b9d;
-    transform: translateY(-2px);
-}
-
-.noJobsMessage {
-    text-align: center;
-    color: #7f8c8d;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-}
-
-.loadingMessage {
-    text-align: center;
-    color: #457b9d;
-    font-size: 1.2rem;
-    padding: 20px;
+    .mainContent {
+        padding: 10px;
+    }
 }

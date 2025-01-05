@@ -1,0 +1,44 @@
+/* General layout */
+.container {
+    padding: 20px;
+    background-color: #ffffff; /* White */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Job List */
+  .jobList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .jobCard {
+    background-color: #f8f9fa;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #1e88e5; /* Blue */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+  }
+  
+  .jobCard:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Buttons */
+  .takeInterviewBtn {
+    background-color: #ff9800; /* Orange */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .takeInterviewBtn:hover {
+    background-color: #e65100; /* Darker Orange */
+  }
+  

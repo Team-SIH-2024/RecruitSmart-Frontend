@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from './userlogin.module.css';
+import { useAuth } from '../Auth/UserAuthContext';
 
 const UserLogin = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const UserLogin = () => {
     });
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,6 +26,7 @@ const UserLogin = () => {
             const response = await axios.post("http://localhost:8000/api/login/", formData);
             if (response.status === 200) {
                 // Redirect to the dashboard if login is successful
+                login({ token: response.data.token, username: response.data.username,role: "candidate" });
                 navigate("/UserDashboard");
             }
         } catch (err) {

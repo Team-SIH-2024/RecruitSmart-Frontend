@@ -6,7 +6,7 @@ import Webcam from "react-webcam";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
 import styles from './InterviewPage.module.css';
-
+import { useAuth } from '../Auth/UserAuthContext'
 
 const enterFullScreen = () => {
     const element = document.documentElement;
@@ -63,6 +63,8 @@ function InterviewPage() {
     const answerTimerRef = useRef(null);
     const submitTimerRef = useRef(null);
 
+
+    const {authState,logout } = useAuth();
 
     useEffect(() => {
       // Example of alert logic
@@ -402,6 +404,7 @@ const handleSubmit = async () => {
             {
                 question_id: currentQuestionId,
                 user_answer: userAnswer,
+                user_email:authState.username,
             }
         );
 
