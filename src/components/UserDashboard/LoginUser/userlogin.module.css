@@ -118,9 +118,16 @@
 }
 
 
-/* Buttons and Links */
-.button {
-    width: 100%;
+.buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Add space between the buttons */
+    align-items: center; /* Vertically center the buttons */
+    gap: 10px; /* Add spacing between buttons */
+    width: 100%; /* Ensure the container spans the required width */
+  }
+  
+  .button {
+    flex: 1; /* Allow buttons to adjust their width if needed */
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -130,7 +137,11 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
+    text-align: center;
+  }
+  
+
+  
 
 .button:hover {
     background-color: var(--hover-color);

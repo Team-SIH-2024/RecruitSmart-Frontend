@@ -14,7 +14,9 @@ const ExpertLogin= () => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
     
-
+    const handleNavigate = () => {
+        navigate('/'); // Navigate to the target page
+      };
     
 
     const handleChange = (e) => {
@@ -75,9 +77,14 @@ const ExpertLogin= () => {
                                 className={styles.input}
                             />
                         </div>
+                        <div className={styles.buttonContainer}>
+                        <button type="submit" className={styles.button} onClick={handleNavigate} >
+                            Back
+                        </button>
                         <button type="submit" className={styles.button} >
                             Login
                         </button>
+                        </div>
                     </form>
                 </div>
             </div>

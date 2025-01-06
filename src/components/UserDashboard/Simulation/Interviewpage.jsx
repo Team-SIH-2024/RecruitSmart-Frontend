@@ -8,30 +8,6 @@ import "@tensorflow/tfjs";
 import styles from './InterviewPage.module.css';
 import { useAuth } from '../Auth/UserAuthContext'
 
-const enterFullScreen = () => {
-    const element = document.documentElement;
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-    }
-  };
-
-const exitFullScreen = () => {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
-  };
 
 function InterviewPage() {
     const { command_id } = useParams(); // Get command_id from URL params
@@ -46,10 +22,7 @@ function InterviewPage() {
     const [isAnswering, setIsAnswering] = useState(false);
     const [score, setScore] = useState(0);
     const webcamRef = useRef(null);
-    const [phoneDetected, setPhoneDetected] = useState(false); // New state for phone detection
-    const [isFullScreen, setIsFullScreen] = useState(false);
-    const [isTabFocused, setIsTabFocused] = useState(true);
-    const [isTabSwitched, setIsTabSwitched] = useState(false);
+    
 
     const [alertCount, setAlertCount] = useState(0);
 
@@ -66,45 +39,7 @@ function InterviewPage() {
 
     const {authState,logout } = useAuth();
 
-    useEffect(() => {
-      // Example of alert logic
-      const handleAlert = () => {
-          setAlertCount(prevCount => prevCount + 1);
-        //   if (alertCount >= 3) {
-        //       // Redirect to feedback page
-        //       navigate('/feedback', { 
-        //         state: { 
-        //             interviewCompleted: false,
-        //         } 
-        //     });
-        //   }
-        
-      };
-
-      // Simulate alerts for demonstration
-      const alertInterval = setInterval(handleAlert, 5000); // Simulate an alert every 5 seconds
-
-      return () => clearInterval(alertInterval); // Cleanup interval on unmount
-  }, [alertCount, navigate]);
-
-  
-
-    const toggleFullScreen = () => {
-        if (!isFullScreen) {
-          enterFullScreen();
-        } else {
-          exitFullScreen();
-        }
-        setIsFullScreen(!isFullScreen);
-      };
     
-
-      // useEffect(() => {
-      //   let model;
-      //   const loadModel = async () => {
-      //     model = await cocoSsd.load();
-      //     console.log("Coco-SSD model loaded.");
-      //   };
       useEffect(() => {
         const loadModel = async () => {
             // Prevent multiple simultaneous model loading attempts
@@ -125,163 +60,7 @@ function InterviewPage() {
         loadModel();
     }, []);
     
-      //   const detectObjects = async () => {
-      //     if (
-      //       webcamRef.current &&
-      //       webcamRef.current.video.readyState === 4 // Video is ready
-      //     ) {
-      //       const video = webcamRef.current.video;
-      //       const predictions = await model.detect(video);
-    
-      //       const phoneFound = predictions.some((prediction) =>
-      //         ["cell phone", "laptop", "electronics"].includes(prediction.class)
-      //       );
-    
-      //       setPhoneDetected(phoneFound);
-    
-      //       if (phoneFound) {
-      //         alert("Phone detected! Please focus on the interview.");
-      //       }
-      //     }
-      //   };
-    
-      //   loadModel();
-    
-      //   const interval = setInterval(() => {
-      //     detectObjects();
-      //   }, 10); // Check every 2 seconds
-    
-      //   return () => clearInterval(interval);
-      // }, []);
-
-      // Create a memoized detection function
-    const detectObjects = useCallback(async () => {
-      if (
-          model && 
-          webcamRef.current && 
-          webcamRef.current.video && 
-          webcamRef.current.video.readyState === 4
-      ) {
-          try {
-              const video = webcamRef.current.video;
-              const predictions = await model.detect(video);
-
-              const phoneFound = predictions.some((prediction) =>
-                  ["cell phone", "laptop", "electronics"].includes(prediction.class)
-              );
-
-              setPhoneDetected(phoneFound);
-
-              if (phoneFound) {
-                  alert("Phone detected! Please focus on the interview.");
-              }
-          } catch (error) {
-              console.error("Error during object detection:", error);
-          }
-      }
-  }, [model]);
-
-  // Modify the detection interval useEffect
-  useEffect(() => {
-      // Only set up interval if model is loaded
-      if (!model) return;
-
-      const interval = setInterval(detectObjects, 10); // Check every 2 seconds
-
-      return () => clearInterval(interval);
-  }, [model, detectObjects]);
-    
-//       // Start webcam recording
-//       const startRecording = () => {
-//         const stream = webcamRef.current.video.srcObject;
-//         mediaRecorderRef.current = new MediaRecorder(stream, {
-//           mimeType: "video/webm",
-//         });
-    
-//         mediaRecorderRef.current.ondataavailable = (event) => {
-//           if (event.data.size > 0) {
-//             recordedChunks.current.push(event.data);
-//           }
-//         };
-    
-//         mediaRecorderRef.current.start();
-//       };
-
-//       const stopRecording = () => {
-//         mediaRecorderRef.current.stop();
-    
-//         const videoBlob = new Blob(recordedChunks.current, {
-//           type: "video/webm",
-//         });
-    
-//         const formData = new FormData();
-//         formData.append("video", videoBlob, "interview_video.webm");
-    
-//         // Send video to the backend
-//         axios
-//           .post("http://127.0.0.1:8000/api/upload-video/", formData, {
-//             headers: { "Content-Type": "multipart/form-data" },
-//           })
-//           .catch((err) => console.error("Error uploading video:", err));
-//       };
-    
-//       // Fullscreen and Escape Key Handling
-//       useEffect(() => {
-//         const enableFullScreen = async () => {
-//           const elem = document.documentElement;
-//           try {
-//             if (elem.requestFullscreen) await elem.requestFullscreen();
-//             else if (elem.webkitRequestFullscreen) await elem.webkitRequestFullscreen();
-//             else if (elem.msRequestFullscreen) await elem.msRequestFullscreen();
-//           } catch (err) {
-//             console.error("Fullscreen activation error:", err);
-//           }
-//         };
-    
-//         const handleEscapeKey = (event) => {
-//           if (event.key === "Escape") {
-//             console.log("Escape key pressed, redirecting to feedback page...");
-//             navigate("/feedback");
-//           }
-//         };
-    
-//         enableFullScreen();
-//         window.addEventListener("keydown", handleEscapeKey);
-    
-//         return () => {
-//           window.removeEventListener("keydown", handleEscapeKey);
-//         };
-//       }, [navigate]);
-
-
-//       useEffect(() => {
-//         const handleTabSwitch = () => {
-//             if (!document.hasFocus()) {
-//                 setIsTabFocused(false);
-//                 setIsTabSwitched(true);
-//             } else {
-//                 setIsTabFocused(true);
-//                 setIsTabSwitched(false);
-//             }
-//         };
-
-//         document.addEventListener("visibilitychange", handleTabSwitch);
-//         window.addEventListener("blur", handleTabSwitch);
-//         window.addEventListener("focus", handleTabSwitch);
-
-//         return () => {
-//             document.removeEventListener("visibilitychange", handleTabSwitch);
-//             window.removeEventListener("blur", handleTabSwitch);
-//             window.removeEventListener("focus", handleTabSwitch);
-//         };
-//     }, []);
-
-//     useEffect(() => {
-//       if (!isTabFocused && isTabSwitched) {
-//           alert("You have switched tabs. Please focus on the interview page to continue.");
-//           setIsTabSwitched(false);
-//       }
-//   }, [isTabFocused, isTabSwitched]);
+ 
 
     
     // Fetch the first question or the next question

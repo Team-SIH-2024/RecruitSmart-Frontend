@@ -119,7 +119,7 @@ const MySimulations = () => {
         console.log("Interview start time (UTC):", new Date(interviewStartTimeUTC).toISOString());
 
         // If the current time is less than the interview start time, return false (interview is in the future)
-        return currentTimeUTC < interviewStartTimeUTC || timeDifference > 5 * 60 * 1000;
+        return currentTimeUTC < interviewStartTimeUTC || timeDifference > 10000 * 60 * 1000;
     };
 
     return (

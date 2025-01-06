@@ -1,5 +1,3 @@
-
-
 :root {
     --primary-color: #1d3557;
     --secondary-color: #457b9d;
@@ -95,7 +93,7 @@
 /* Child Container (Login Form) */
 .child {
     width: 80%; /* Fills 80% of the right container */
-    max-width: 350px; /* Restricts max width for large screens */
+    max-width: 420px; /* Restricts max width for large screens */
     /* background-color: var(--light-color); */
     background-color: transparent; /* Remove background color */
     /* border-radius: 8px;
@@ -146,8 +144,8 @@
     position: relative;
     display: inline-block;
     margin: 10px;
-    width: 600px; /* Adjust the width as needed */
-    height: 300px; /* Adjust the height as needed */
+    width: 900px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
     overflow: hidden; /* Hide overflow */
     border-radius: 5px; /* Optional: for rounded corners */
     transition: transform 0.3s; /* Transition for scaling effect */
@@ -159,6 +157,10 @@
     object-fit: cover; /* Maintain aspect ratio */
     opacity: 0.5; /* Start with a shade */
     transition: opacity 0.3s; /* Transition for opacity change */
+    object-position: center;
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image within the container */
 }
 
 .imageButton:hover img {
@@ -178,20 +180,14 @@
     padding: 50px 0; /* Add some vertical padding */
 }
 
-.imageButtonContainer {
-    display: flex; /* Aligns the buttons horizontally */
-    justify-content: center; /* Center the buttons */
-    padding: 50px 0; /* Add some vertical padding */
-}
-
 .imageButton {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 10px 0px 10px ; /* Spacing between buttons */
-    width: 60vw; /* Set the width for the button */
-    height:35vh; /* Set the height for the button */
+    margin: 10px 5px 0px 5px ; /* Spacing between buttons */
+    width: 70vw; /* Set the width for the button */
+    height:20vh; /* Set the height for the button */
     overflow: hidden; /* Hide overflow */
     border-radius: 5px; /* Optional: for rounded corners */
     cursor: pointer; /* Change cursor to pointer */

@@ -18,6 +18,10 @@ const UserLogin = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+
+    const handleNavigate = () => {
+        navigate('/'); // Navigate to the target page
+      };
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
@@ -84,9 +88,14 @@ const UserLogin = () => {
                         </div>
 
                         <div className={styles.loginContainer}>
-                            <button type="submit" className={styles.button}>
-                                Login
-                            </button>
+                        <div className={styles.buttonContainer}>
+                        <button type="submit" className={styles.button} onClick={handleNavigate} >
+                            Back
+                        </button>
+                        <button type="submit" className={styles.button} >
+                            Login
+                        </button>
+                        </div>
                             <a href="/forgotpw" className={styles.forgotPw}>
                                 Forgot Password?
                             </a>

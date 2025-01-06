@@ -14,7 +14,9 @@ const AdminLogin = () => {
     const { login } = useAuth();
 
     
-
+    const handleNavigate = () => {
+        navigate('/'); // Navigate to the target page
+      };
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -71,10 +73,15 @@ const AdminLogin = () => {
                                 required
                                 className={styles.input}
                             />
-                        </div>
+                        </div >
+                        <div className={styles.buttonContainer}>
+                        <button type="submit" className={styles.button} onClick={handleNavigate} >
+                            Back
+                        </button>
                         <button type="submit" className={styles.button} >
                             Login
                         </button>
+                        </div>
                     </form>
                 </div>
             </div>
