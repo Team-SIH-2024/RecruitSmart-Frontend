@@ -13,7 +13,7 @@ import UserSignup from './components/UserDashboard/SignupUser/UserSignup';
 import InterviewPage from "./components/UserDashboard/Simulation/Interviewpage"; // Ensure this path is correct
 import ResumeUploadPage from "./components/UserDashboard/Simulation/ResumeUploadPage.jsx";
 import ExpertDashboard from './components/expertdashboard/ExpertDashboard.jsx';
-
+import ExpertLogin from './components/expertdashboard/LoginPage/ExpertLogin.jsx'
 
 
 import { AuthProvider } from './components/AuthContext';
@@ -35,6 +35,7 @@ function App(){
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/UserDashboard" element={<UserPrivateRoute><UserDashboard /></UserPrivateRoute>} />
         <Route path="/expert" element={<ExpertDashboard />} />
+        <Route path="/ExpertLogin" element={<ExpertLogin />} />
         <Route path="/upload-resume" element={<ResumeUploadPage />} />
         <Route path="/upload-resume/:command_id" element={<ResumeUploadPage />} />
         <Route path="/CompatibilityTest/:command_id" element={<CompatibilityTest />} />

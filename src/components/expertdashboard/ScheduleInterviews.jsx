@@ -235,6 +235,24 @@ const ScheduleInterviews = () => {
     fetchJobs();
   }, []);
 
+
+  const convertISTtoUTC = (istTime) => {
+    // First, we need to manually treat the input string as being in IST
+    const [datePart, timePart] = istTime.split('T');
+    const [hour, minute] = timePart.split(':');
+  
+    // Create a Date object based on the provided date and time in IST
+    const istDate = new Date(`${datePart}T${timePart}:00+05:30`); // adding IST offset
+  
+    // Return the time in UTC by converting it to an ISO string
+    return istDate.toISOString(); // This should convert it to UTC
+  };
+  
+  
+  
+
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -244,10 +262,14 @@ const ScheduleInterviews = () => {
       console.log(selectedJob)
       console.log(selectedUser)
       console.log(scheduledTime)
+
+      const utcScheduledTime = convertISTtoUTC(scheduledTime);
+      console.log("Scheduled Time in UTC:", utcScheduledTime);
+      
       const response = await axios.post('http://127.0.0.1:8000/expert-dashboard/schedule-interview/', {
         user_gmail: selectedUser,  // Send the email as a string, not in an array
         job_id: selectedJob,
-        scheduled_time: scheduledTime,
+        scheduled_time: utcScheduledTime,
       });
   
       setMessage(response.data.message);

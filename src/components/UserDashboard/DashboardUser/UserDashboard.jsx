@@ -11,7 +11,7 @@
 //     const navigate = useNavigate();
 //     const {authState,logout } = useAuth();
 //     useEffect(() => {
-//         const fetchJobs = async () => {
+//         const fetchJobs = async () => {  
 //             try {
 //                 const response = await axios.get("http://localhost:8000/api/jobs/",{
 //                     params: { gmail: authState.username },

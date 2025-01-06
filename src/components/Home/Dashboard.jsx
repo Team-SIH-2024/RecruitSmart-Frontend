@@ -9,7 +9,7 @@ function Dashboard() {
 
     const goToAdmin = () => navigate('/adminlogin');
     const goToUserLogin = () => navigate('/userlogin/');
-    const goToexpert = () => navigate('/expert/');
+    const goToexpert = () => navigate('/expertLogin/');
 
     return (
         <div className={styles.page}>
