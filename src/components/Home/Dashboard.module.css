@@ -17,7 +17,7 @@
 
 /* Left Container */
 .leftContainer {
-    width: 48%; /* Adjusted width */
+    width: 50%; /* Adjusted width */
     /* background-color: var(--primary-color); */
     background-image: url('/public/loginpageImg.jpg'); /* Sample path */
     background-size:contain; /* Ensures the image covers the container */
@@ -39,7 +39,21 @@
 .leftContainer:hover {
     transform: scale(1.05); /* Slight zoom effect */
 }
-
+.Dashboardbutton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #FFFFFF; /* White text */
+    background-color: #377197; /* Sky Blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.Dashboardbutton:hover {
+    background-color: #161a1f; /* Navy Blue */
+    transform: scale(1.05);
+}
 
 .leftContainer::after {
     content: "";

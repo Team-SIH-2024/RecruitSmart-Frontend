@@ -33,7 +33,7 @@ const Home = () => {
             <section className={styles.heroSection}>
                 <div className={styles.heroContent}>
                     <h1>Welcome to the Future of Interviews</h1>
-                    <p>Experience a Real-Life Board Room Interview Simulation</p>
+                    
                     <button className={styles.button} onClick={handleGetStarted}>Get Started</button>
                 </div>
             </section>
@@ -41,7 +41,8 @@ const Home = () => {
             {/* About Section */}
             <section id="about" className={styles.aboutSection}>
                 <div className={styles.container}>
-                    <h2>About RAC Selector</h2>
+                    <h2>About RecruitSmart</h2>
+                    <p>Experience a Real-Life Board Room Interview Simulation</p>
                     <p>
                         Our platform offers an advanced interview simulation experience
                         for candidates and interviewers alike, ensuring unbiased and

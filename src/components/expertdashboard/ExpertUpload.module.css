@@ -48,7 +48,7 @@
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
-    background-color: #1d3557;
+    background-color: #FF9800;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -70,4 +70,11 @@
     font-size: 16px;
     color: #666;
     margin-top: 20px;
+}
+.divider {
+    border: none;
+    height: 2px;
+    background-color: white;
+    width: 80%;
+    margin: 20px 0;
 }

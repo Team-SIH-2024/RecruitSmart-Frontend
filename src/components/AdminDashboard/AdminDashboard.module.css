@@ -138,7 +138,7 @@
 }
 
 .deleteButton {
-  background-color: #e74c3c;
+  background-color: #ff9800;
   color: #fff;
   border: none;
   padding: 10px;
@@ -149,7 +149,7 @@
 }
 
 .deleteButton:hover {
-  background-color: #c0392b;
+  background-color: #e08f14;
   transform: translateY(-3px); /* Button hover lift */
 }
 
@@ -162,4 +162,20 @@
   border: 1px solid #c8e6c9;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+.divider {
+  border: none;
+  height: 2px;
+  background-color: white;
+  width: 80%;
+  margin: 20px 0;
+}
+.sidebar h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff; /* Ensure text remains white */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
 }

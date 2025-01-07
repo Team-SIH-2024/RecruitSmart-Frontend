@@ -14,6 +14,7 @@ const ExpertDashboard = () => {
         <div className={styles.dashboardContainer}>
             <div className={styles.sidebar}>
                 <h2 className={styles.sidebarTitle}>Expert Dashboard</h2>
+                <hr className={styles.divider} />
                 <ul className={styles.navList}>
                     <li
                         className={`${styles.navItem} ${
@@ -33,7 +34,7 @@ const ExpertDashboard = () => {
                     </li>
                     <li className={styles.navItem}>
                         <a href="/" className={styles.logoutLink}>
-                            Logout
+                            Sign out
                         </a>
                     </li>
                 </ul>

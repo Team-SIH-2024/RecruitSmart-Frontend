@@ -22,7 +22,6 @@ function InterviewPage() {
     const [isAnswering, setIsAnswering] = useState(false);
     const [score, setScore] = useState(0);
     const webcamRef = useRef(null);
-    const [alertShown, setAlertShown] = useState(false);
     
 
     const [alertCount, setAlertCount] = useState(0);
@@ -39,7 +38,9 @@ function InterviewPage() {
 
 
     const {authState,logout } = useAuth();
-
+    const [alertShown, setAlertShown] = useState(false);
+    
+     
     useEffect(() => {
         const handleVisibilityChange = () => {
           if (document.hidden && !alertShown) {
@@ -56,10 +57,6 @@ function InterviewPage() {
           document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
       }, [alertShown]);
-
-
-
-    
  
 
     
@@ -287,30 +284,34 @@ const speakText = (text) => {
                                 rows="4"
                             />
                             <div className={styles.buttonContainer}>
-                                <button
-                                    className={styles.button}
-                                    onClick={startAnswering}
-                                    disabled={isAnswering}
-                                >
-                                    Answer the Question
-                                </button>
-                                <button
-                                    className={styles.button}
-                                    onClick={handleVoiceInput}
-                                    disabled={!isAnswering}
-                                >
-                                    Use Voice Input
-                                </button>
-                                <button
-                                    className={styles.button}
-                                    onClick={handleSubmit}
-                                    disabled={!isAnswering}
-                                >
-                                    Submit Answer
-                                </button>
-                                <button className={styles.button} onClick={handleSkipQuestion}>
-                                    Skip Question
-                                </button>
+                            <button
+                            className={`${styles.intbutton}`}
+                            onClick={startAnswering}
+                            disabled={isAnswering}
+                        >
+                            Answer the Question
+                        </button>
+                        <button
+                            className={`${styles.intbutton}`}
+                            onClick={handleVoiceInput}
+                            disabled={!isAnswering}
+                        >
+                            Use Voice Input
+                        </button>
+                        <button
+                            className={`${styles.intbutton}`}
+                            onClick={handleSubmit}
+                            disabled={!isAnswering}
+                        >
+                            Submit Answer
+                        </button>
+                        <button
+                            className={`${styles.intbutton}`}
+                            onClick={handleSkipQuestion}
+                        >
+                            Skip Question
+                        </button>
+
                             </div>
                         </>
                     )}

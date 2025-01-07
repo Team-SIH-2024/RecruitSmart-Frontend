@@ -1,88 +1,34 @@
+/* styles.module.css */
 :root {
-    --primary-color: #1d3557;
-    --secondary-color: #457b9d;
-    --accent-color: #a8dadc;
+    --primary-color: #161a1f;
+    --secondary-color: #3b6a8a;
+    --accent-color: #92c3c6;
     --light-color: #f1faee;
-    --hover-color: #457b9d;
-    --background-gradient: linear-gradient(135deg, #f6f8fa, #e9ecef);
+    --hover-color: #3b6a8a;
+    --background-gradient: linear-gradient(135deg, #ffafbd, #ffc3a0);
 }
 
-/* Page Styling */
 .page {
     display: flex;
     height: 100vh;
-    width: 100vw; 
-    overflow: hidden; /* Remove scrolling */
-}
-
-/* Left Container */
-.leftContainer {
-    width: 45%; /* Adjusted width */
-    /* background-color: var(--primary-color); */
-    background-image: url('/public/img2.jpg'); /* Sample path */
-    background-size: cover; /* Ensures the image covers the container */
-    background-position: center; /* Centers the image */
-    color: var(--light-color);
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    text-align: center;
+    background: var(--background-gradient);
 }
 
-.leftContainer h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.leftContainer p {
-    font-size: 16px;
-}
-
-/* Right Container */
 .rightContainer {
-    width: 55%; /* Adjusted width */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to right, #a1d6e2, #f1f1f2); /* Gradient */
-    padding: 20px;
-} 
-
-/* Right Container */
-/* .rightContainer {
-    width: 55%; /* Adjusted width 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('/public/img2.jpg'); /* Sample path 
-    background-size: cover; /* Ensures the image covers the container 
-    background-position: center; /* Centers the image 
-    padding: 20px;
-} */
-
-
-/* Child Container (Login Form) */
-.child {
-    width: 80%; /* Fills 80% of the right container */
-    max-width: 350px; /* Restricts max width for large screens */
+    width: 80%;
+    max-width: 450px;
     background-color: var(--light-color);
     border-radius: 8px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    padding: 0 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
 }
-
-.child h3{
-    padding: 10px;
-    margin:5px
-}
-/* Form Styling */
 
 .form {
     display: flex;
@@ -90,14 +36,13 @@
     gap: 10px;
 }
 
-/* Input Field Styling */
 .input {
-    width: 95%; /* Decreased width to avoid touching the form border */
+    width: 95%;
     padding: 8px 10px;
     font-size: 14px;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
-    margin: 5px auto; /* Added margin to create space around the input fields */
+    margin: 5px auto;
     transition: box-shadow 0.3s, border-color 0.3s;
 }
 
@@ -108,26 +53,24 @@
     border-color: var(--accent-color);
 }
 
-/* Input Container */
 .inputContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Consistent spacing between label and input */
+    gap: 10px;
     align-items: flex-start;
-    margin-bottom: 20px; /* Spacing between input fields and form content */
+    margin-bottom: 20px;
 }
-
 
 .buttonContainer {
     display: flex;
-    justify-content: space-between; /* Add space between the buttons */
-    align-items: center; /* Vertically center the buttons */
-    gap: 10px; /* Add spacing between buttons */
-    width: 100%; /* Ensure the container spans the required width */
-  }
-  
-  .button {
-    flex: 1; /* Allow buttons to adjust their width if needed */
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.button {
+    flex: 1;
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -138,13 +81,10 @@
     cursor: pointer;
     transition: background-color 0.3s;
     text-align: center;
-  }
-  
-
-  
+}
 
 .button:hover {
-    background-color: var(--hover-color);
+    background-color: #377197;
 }
 
 .forgotPw {
@@ -170,7 +110,6 @@
     color: var(--hover-color);
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -182,34 +121,18 @@
     }
 }
 
-/* Responsiveness */
 @media screen and (max-width: 768px) {
     .page {
-        flex-direction: column;
-    }
-
-    .leftContainer {
-        width: 100%;
-        height: 50vh;
+        padding: 10px;
     }
 
     .rightContainer {
-        width: 100%;
-        height: 50vh;
-    }
-
-    .child {
-        width: 85%; /* Slightly increase width for smaller screens */
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .child {
+    .rightContainer {
         width: 95%;
     }
-
-    .input {
-        margin-right: 5px; /* Reduce margin for very small screens */
-    }
 }
-

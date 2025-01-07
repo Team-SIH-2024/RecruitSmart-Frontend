@@ -170,7 +170,7 @@ const AdminDashboard = () => {
                   required
                 />
               </div>
-              <button type="submit">Create Job Post</button>
+              <button type="submit" className={styles.deleteButton}>Create Job Post</button>
             </form>
             {message && <p>{message}</p>}
           </div>
@@ -224,6 +224,7 @@ const AdminDashboard = () => {
     <div className={styles.dashboard}>
       <aside className={styles.sidebar}>
         <h2>Admin Dashboard</h2>
+        
         <hr />
         <ul>
           <li onClick={() => setActivePage("createJobs")}>Create Jobs</li>
@@ -231,7 +232,7 @@ const AdminDashboard = () => {
           <li onClick={() => setActivePage("jobList")}>Job List</li>
           <li onClick={() => setActivePage("CandidatesPerformance")}>Performance Metrics</li>
 
-          <li onClick={handleLogout}>Logout</li>
+          <li onClick={handleLogout}>Sign out</li>
         </ul>
       </aside>
 

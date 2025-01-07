@@ -78,7 +78,7 @@ const ExpertLogin= () => {
                             />
                         </div>
                         <div className={styles.buttonContainer}>
-                        <button type="submit" className={styles.button} onClick={handleNavigate} >
+                        <button type="button" className={styles.button} onClick={handleNavigate} >
                             Back
                         </button>
                         <button type="submit" className={styles.button} >

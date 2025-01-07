@@ -10,6 +10,11 @@ function Dashboard() {
     const goToAdmin = () => navigate('/adminlogin');
     const goToUserLogin = () => navigate('/userlogin/');
     const goToexpert = () => navigate('/expertLogin/');
+    
+
+    const handleNavigate = () => {
+        navigate('/'); // Navigate to the target page
+    };
 
     return (
         <div className={styles.page}>
@@ -43,6 +48,9 @@ function Dashboard() {
                             
 
                         </div>
+                        <button type="button" className={styles.Dashboardbutton} onClick={handleNavigate}>
+                                Back
+                            </button>
 
                 </div>
             </div>

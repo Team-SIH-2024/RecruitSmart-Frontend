@@ -86,7 +86,7 @@ const CompatibilityTest = () => {
               <div className={styles.videoContainer}>
                 <video ref={videoRef} className={styles.video} autoPlay playsInline></video>
                 <br />
-                <button onClick={handleVideoTest} className={styles.button}>
+                <button onClick={handleVideoTest} className={styles.combutton}>
                   Start Video Test
                 </button>
               </div>
@@ -99,7 +99,7 @@ const CompatibilityTest = () => {
               <p>Please say something when prompted. Your voice input will be displayed below.</p>
               <div className={styles.voiceContainer}>
                 {isRecording && <span className={styles.recording}>Recording...</span>}
-                <button onClick={handleVoiceTest} className={styles.button}>
+                <button onClick={handleVoiceTest} className={styles.combutton}>
                   Start Voice Test
                 </button>
                 {userResponse && (
@@ -142,7 +142,7 @@ const CompatibilityTest = () => {
               className={styles.instructionImage}
             />
           <ol>
-            <li>Click on the 'Answer' button to start recording and 'End Answer' button to move to the next question.</li>
+            <li>Click on the 'Answer' button to start Answering , 'Use Voice Input' button to give answer with mic and 'Submit Answer' button to submit the answer</li>
             <li>Answer all the questions to generate the final analytics report.</li>
             <li>Do not worry if the transcription text is not accurate; we will improve it before generating the analytics report.</li>
             <li>Use your headphones for a better experience.</li>
@@ -154,3 +154,6 @@ const CompatibilityTest = () => {
 };
 
 export default CompatibilityTest;
+
+
+

@@ -132,7 +132,7 @@
 }
 
 .button:hover {
-    background-color: var(--hover-color);
+    background-color: #19437e;
     transform: translateY(-3px); /* Slight lift effect on hover */
 }
 

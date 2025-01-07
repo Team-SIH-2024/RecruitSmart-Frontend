@@ -126,7 +126,7 @@
     text-align: center;
   }
 .button:hover {
-    background-color: var(--hover-color);
+    background-color: #345a8e;
 }
 
 .errorMessage {

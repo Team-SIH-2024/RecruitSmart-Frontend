@@ -23,7 +23,7 @@ body {
 
 /* Button Styles */
 .button {
-    background-color: #FF9800; /* Primary color */
+    background-color: #3e7ea8; /* Primary color */
     color: white; /* Text color */
     padding: 12px 20px; /* Padding for the button */
     border: none; /* Remove default border */
@@ -37,7 +37,7 @@ body {
 
 /* Hover Effect */
 .button:hover {
-    background-color: #1c98f0; /* Darker shade on hover */
+    background-color: #161a1f; /* Darker shade on hover */
     transform: translateY(-2px); /* Slight lift effect */
 }
 
@@ -82,9 +82,7 @@ body {
 .navMenu {
     float: right;
 }
-h1 {
-    color: white;
-}
+
 
 .navMenu a {
     color: var(--primary-color);
@@ -118,7 +116,7 @@ h1 {
 
 /* Hero Section Styles */
 .heroSection {
-    background: url('/public/img2.jpg') no-repeat center center/cover;
+    background: url('/public/images/Human-or-AI.png') no-repeat center center/cover;
     height: 100vh;
     color: #fff;
     position: relative;
@@ -137,15 +135,17 @@ h1 {
 
 .heroContent {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
+
 .heroContent h1 {
+    top:10%;
     font-size: 3em;
-    margin-bottom: 10px;
+    margin-bottom: 330px;
 }
 
 .heroContent p {

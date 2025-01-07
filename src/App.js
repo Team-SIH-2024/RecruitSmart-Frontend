@@ -30,7 +30,7 @@ function App(){
     // Update the favicon
     const favicon = document.querySelector('link[rel="icon"]');
     if (favicon) {
-      favicon.href = '/rslogo.png'; // Path to your favicon
+      favicon.href = '/logors.jpg'; // Path to your favicon
     }
   }, []);
   return (

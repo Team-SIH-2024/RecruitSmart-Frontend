@@ -152,7 +152,7 @@ const UserDashboard = () => {
                         Profile
                     </li>
                     <li className={styles.navItem} onClick={handleLogout}>
-                        Logout
+                        Sign out
                     </li>
                 </ul>
             </aside>
