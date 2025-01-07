@@ -1,163 +1,137 @@
+/* General Page Styles */
+body {
+  background-color: #F5F5F5; /* Light Grey */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #212121; /* Dark Grey */
+}
 
-/* Local Styles */
+h1 {
+  text-align: center;
+  color: #1E88E5; /* Blue */
+  margin-top: 40px;
+}
 
-.CompatibilityTest {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    background-color: #f1faee;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  .CompatibilityTest h1 {
-    color: #1a1d23;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .CompatibilityTest p {
-    color: #2e4053;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .testContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #3498db;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .testContainer h2 {
-    color: #3498db;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .videoContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .videoContainer video {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .videoContainer button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .videoContainer button:hover {
-    background-color: #66CCCC;
-    transform: scale(1.05);
-  }
-  
-  .videoContainer button:active {
-    background-color: #3498db;
-    transform: scale(0.95);
-  }
-  
-  .voiceContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .voiceContainer button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .voiceContainer button:hover {
-    background-color: #66CCCC;
-    transform: scale(1.05);
-  }
-  
-  .voiceContainer button:active {
-    background-color: #3498db;
-    transform: scale(0.95);
-  }
-  
-  .recording {
-    color: #2e4053;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .response {
-    margin-top: 20px;
-  }
-  
-  .response h3 {
-    color: #3498db;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .response p {
-    color: #2e4053;
-    font-size: 16px;
-  }
-  
-  .status {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #3498db;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .status h3 {
-    color: #3498db;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .status p {
-    color: #2e4053;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .passed {
-    color: #2ecc71;
-  }
-  
-  .pending {
-    color: #e74c3c;
-  }
+/* Container to hold left and right sections */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px;
+}
+
+.leftContainer, .rightContainer {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff; /* White */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E0E0E0; /* Light Grey border */
+}
+
+.leftContainer {
+  background-color: #f9f9f9; /* Light Grey for left container */
+}
+
+h2 {
+  color: #1E88E5; /* Blue */
+  margin-bottom: 10px;
+}
+
+p {
+  color: #212121; /* Dark Grey */
+}
+
+/* Test status and steps */
+.testContainer {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #FF9800; /* Orange */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FB8C00; /* Darker Orange on hover */
+}
+
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.recording {
+  font-size: 18px;
+  color: #FF9800; /* Orange */
+}
+
+.response {
+  margin-top: 20px;
+}
+
+.status {
+  margin-top: 20px;
+}
+
+.passed {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: red;
+  font-weight: bold;
+}
+
+/* Right Section Styles */
+.rightContainer {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E0E0E0; /* Light Grey border */
+}
+
+.instructionImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+ol {
+  padding-left: 20px;
+  color: #212121;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Status indicators */
+.status {
+  margin-top: 20px;
+}
+
+.status h3 {
+  color: #1E88E5; /* Blue */
+}
+
+.status p {
+  color: #757575; /* Muted Grey */
+}

@@ -1,8 +1,9 @@
-import React from "react";
+import React ,{ useEffect }from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard"; // Ensure this path is correct
 import AdminLogin from './components/AdminDashboard/AdminLogin.jsx';
 import CompatibilityTest from './components/Compatibility/CompatibilityTest.jsx';
+import InterviewPrerequisite from './components/Compatibility/InterviewPrerequisite.jsx';
 import FeedbackPage from './components/FeedbackPage/FeedbackPage';
 import Dashboard from './components/Home/Dashboard.jsx';
 import Home from './components/Home/Homepage.jsx';
@@ -23,6 +24,15 @@ import UserPrivateRoute from "./components/UserDashboard/Auth/UserPrivateRoute.j
 
 function App(){
   const isAllowed = true;
+  useEffect(() => {
+    document.title = 'RecruitSmart'; // Set your app title
+
+    // Update the favicon
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) {
+      favicon.href = '/rslogo.png'; // Path to your favicon
+    }
+  }, []);
   return (
     <AuthProvider>
     <UserAuthProvider>    
@@ -40,6 +50,7 @@ function App(){
         <Route path="/upload-resume" element={<ResumeUploadPage />} />
         <Route path="/upload-resume/:command_id" element={<ResumeUploadPage />} />
         <Route path="/CompatibilityTest/:command_id" element={<CompatibilityTest />} />
+        <Route path="/InterviewPrerequisite" element={<InterviewPrerequisite />} />
         <Route path="/feedback" element={<FeedbackPage  />} /> {/* Add the feedback route */}
         
 

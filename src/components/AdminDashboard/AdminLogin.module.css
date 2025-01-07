@@ -1,7 +1,7 @@
 :root {
     --primary-color: #1d3557;
     --secondary-color: #457b9d;
-    --accent-color: #a8dadc;
+    --accent-color: #a8dadc;  /* #a8dadc  Light blue color */
     --light-color: #f1faee;
     --hover-color: #10a1f5;
     --background-gradient: linear-gradient(135deg, #f6f8fa, #b4d5f6);
@@ -12,11 +12,11 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    flex-direction: row-reverse; /* This swaps the order of the containers */
+    flex-direction: row; /* Keeps the image and form side by side */
 }
 
 .rightContainer {
-    width: 52%;
+    width: 50%;
     background-image: url('/public/loginpageImg.jpg');
     background-size: cover;
     background-position: center;
@@ -29,6 +29,7 @@
     text-align: center;
     position: relative;
     transition: transform 0.3s ease;
+    height: 100%;
 }
 
 .rightContainer:hover {
@@ -55,31 +56,36 @@
 .rightContainer p {
     z-index: 1;
     color: var(--light-color);
+    margin: 0;
 }
 
 .leftContainer {
-    width: 48%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: var(--background-gradient);
-    padding: 20px;
+    padding: 40px 20px;
+    height: 100%;
 }
 
 .child {
-    width: 80%;
-    max-width: 350px;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
     text-align: center;
+    background-color:rgba(113, 164, 200, 0.4); /* Slight background for readability */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .inputContainer {
@@ -89,11 +95,11 @@
 }
 
 .input {
-    width: 90%;
-    padding: 10px;
-    font-size: 14px;
+    width: 95%;
+    padding: 12px;
+    font-size: 16px;
     border: 1px solid var(--secondary-color);
-    border-radius: 5px;
+    border-radius: 8px;
     transition: box-shadow 0.3s, border-color 0.3s;
 }
 
@@ -106,36 +112,35 @@
 
 .buttonContainer {
     display: flex;
-    justify-content: space-between; /* Add space between the buttons */
-    align-items: center; /* Vertically center the buttons */
-    gap: 10px; /* Add spacing between buttons */
-    width: 100%; /* Ensure the container spans the required width */
-  }
-  
-  .button {
-    flex: 1; /* Allow buttons to adjust their width if needed */
-    padding: 10px;
+    justify-content: space-between;
+    gap: 20px; /* Adjusts space between buttons */
+}
+
+.button {
+    width: 45%; /* Adjusted width for better alignment */
+    padding: 12px;
     font-size: 16px;
+    margin:0px 7px;
+   
     font-weight: bold;
     color: var(--light-color);
     background-color: var(--primary-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
-  }
-  
-
-  
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
 .button:hover {
     background-color: var(--hover-color);
+    transform: translateY(-3px); /* Slight lift effect on hover */
 }
 
 .errorMessage {
     color: red;
     text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 /* Responsive Design */
@@ -149,5 +154,21 @@
         height: 100vh;
         justify-content: center;
         align-items: center;
+        padding: 20px; /* Adds some padding to make it look better on smaller screens */
+    }
+
+    .child {
+        width: 100%;
+        max-width: 400px; /* More width for better mobile experience */
+        padding: 20px;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+        gap: 15px; /* Stack buttons vertically on smaller screens */
+    }
+
+    .button {
+        width: 100%;
     }
 }

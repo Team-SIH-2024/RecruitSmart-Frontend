@@ -101,11 +101,10 @@
 
 
 
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from './UserDashboard.module.css';
-import { useAuth } from '../Auth/UserAuthContext';
+import styles from "./UserDashboard.module.css";
+import { useAuth } from "../Auth/UserAuthContext";
 import MySimulations from "./MySimulations";
 import MyProfile from "./MyProfile";
 
@@ -132,34 +131,34 @@ const UserDashboard = () => {
 
     return (
         <div className={styles.dashboard}>
-          <aside className={styles.sidebar}>
-            <h2>User Dashboard</h2>
-            <hr className={styles.divider} />
-            <ul className={styles.navList}>
-              <li
-                className={`${styles.navItem} ${
-                  activePage === "simulation" ? styles.active : ""
-                }`}
-                onClick={() => setActivePage("simulation")}
-              >
-                My Simulations
-              </li>
-              <li
-                className={`${styles.navItem} ${
-                  activePage === "profile" ? styles.active : ""
-                }`}
-                onClick={() => setActivePage("profile")}
-              >
-                Profile
-              </li>
-              <li className={styles.navItem} onClick={handleLogout}>
-                Logout
-              </li>
-            </ul>
-          </aside>
-          <main className={styles.mainContent}>{renderContent()}</main>
+            <aside className={styles.sidebar}>
+                <h2>User Dashboard</h2>
+                <hr className={styles.divider} />
+                <ul className={styles.navList}>
+                    <li
+                        className={`${styles.navItem} ${
+                            activePage === "simulation" ? styles.active : ""
+                        }`}
+                        onClick={() => setActivePage("simulation")}
+                    >
+                        My Simulations
+                    </li>
+                    <li
+                        className={`${styles.navItem} ${
+                            activePage === "profile" ? styles.active : ""
+                        }`}
+                        onClick={() => setActivePage("profile")}
+                    >
+                        Profile
+                    </li>
+                    <li className={styles.navItem} onClick={handleLogout}>
+                        Logout
+                    </li>
+                </ul>
+            </aside>
+            <main className={styles.mainContent}>{renderContent()}</main>
         </div>
-      );
+    );
 };
 
 export default UserDashboard;

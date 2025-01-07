@@ -72,49 +72,85 @@ const CompatibilityTest = () => {
 
   return (
     <div className={styles.CompatibilityTest}>
-      <h1>Compatibility Test</h1>
-      <p>Please ensure your webcam and microphone are functioning correctly.</p>
-  
-      {currentTest === "video" && (
-        <div className={styles.testContainer}>
-          <h2>Step 1: Video Test</h2>
-          <p>Your webcam feed will appear below. The test will complete in 5 seconds.</p>
-          <div className={styles.videoContainer}>
-            <video ref={videoRef} className={styles.video} autoPlay playsInline></video>
-            <br />
-            <button onClick={handleVideoTest} className={styles.button}>
-              Start Video Test
-            </button>
-          </div>
-        </div>
-      )}
-  
-      {currentTest === "voice" && (
-        <div className={styles.testContainer}>
-          <h2>Step 2: Voice Test</h2>
-          <p>Please say something when prompted. Your voice input will be displayed below.</p>
-          <div className={styles.voiceContainer}>
-            {isRecording && <span className={styles.recording}>Recording...</span>}
-            <button onClick={handleVoiceTest} className={styles.button}>
-              Start Voice Test
-            </button>
-            {userResponse && (
-              <div className={styles.response}>
-                <h3>Your Response:</h3>
-                <p>{userResponse}</p>
+      <h1>Interview Prerequisites</h1>
+      
+      
+      <div className={styles.container}>
+        {/* Left Container: Compatibility Test */}
+        <div className={styles.leftContainer}>
+          {currentTest === "video" && (
+            <div className={styles.testContainer}>
+              <p>Please ensure your webcam and microphone are functioning correctly.</p>
+              <h2>Step 1: Video Test</h2>
+              <p>Your webcam feed will appear below. The test will complete in 5 seconds.</p>
+              <div className={styles.videoContainer}>
+                <video ref={videoRef} className={styles.video} autoPlay playsInline></video>
+                <br />
+                <button onClick={handleVideoTest} className={styles.button}>
+                  Start Video Test
+                </button>
               </div>
-            )}
+            </div>
+          )}
+
+          {currentTest === "voice" && (
+            <div className={styles.testContainer}>
+              <h2>Step 2: Voice Test</h2>
+              <p>Please say something when prompted. Your voice input will be displayed below.</p>
+              <div className={styles.voiceContainer}>
+                {isRecording && <span className={styles.recording}>Recording...</span>}
+                <button onClick={handleVoiceTest} className={styles.button}>
+                  Start Voice Test
+                </button>
+                {userResponse && (
+                  <div className={styles.response}>
+                    <h3>Your Response:</h3>
+                    <p>{userResponse}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          <div className={styles.status}>
+            <h3>Test Status:</h3>
+            <p>
+              Video Test:{" "}
+              {videoTestPassed ? (
+                <span className={styles.passed}>Passed</span>
+              ) : (
+                <span className={styles.pending}>Pending</span>
+              )}
+            </p>
+            <p>
+              Voice Test:{" "}
+              {voiceTestPassed ? (
+                <span className={styles.passed}>Passed</span>
+              ) : (
+                <span className={styles.pending}>Pending</span>
+              )}
+            </p>
           </div>
         </div>
-      )}
-  
-      <div className={styles.status}>
-        <h3>Test Status:</h3>
-        <p>Video Test: {videoTestPassed ? <span className={styles.passed}>Passed </span> : <span className={styles.pending}>Pending </span>}</p>
-        <p>Voice Test: {voiceTestPassed ? <span className={styles.passed}>Passed </span> : <span className={styles.pending}>Pending </span>}</p>
+
+        {/* Right Container: Interview Instructions */}
+        <div className={styles.rightContainer}>
+          <h2>Interview Instructions</h2>
+            <img
+              src="/ai.jpg"
+              alt="Interview Instructions"
+              className={styles.instructionImage}
+            />
+          <ol>
+            <li>Click on the 'Answer' button to start recording and 'End Answer' button to move to the next question.</li>
+            <li>Answer all the questions to generate the final analytics report.</li>
+            <li>Do not worry if the transcription text is not accurate; we will improve it before generating the analytics report.</li>
+            <li>Use your headphones for a better experience.</li>
+          </ol>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default CompatibilityTest;
