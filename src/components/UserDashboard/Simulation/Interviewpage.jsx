@@ -22,6 +22,7 @@ function InterviewPage() {
     const [isAnswering, setIsAnswering] = useState(false);
     const [score, setScore] = useState(0);
     const webcamRef = useRef(null);
+    const [alertShown, setAlertShown] = useState(false);
     
 
     const [alertCount, setAlertCount] = useState(0);
@@ -39,26 +40,25 @@ function InterviewPage() {
 
     const {authState,logout } = useAuth();
 
-    
-      useEffect(() => {
-        const loadModel = async () => {
-            // Prevent multiple simultaneous model loading attempts
-            if (modelLoadingRef.current) return;
-            modelLoadingRef.current = true;
-
-            try {
-                const loadedModel = await cocoSsd.load();
-                setModel(loadedModel);
-                console.log("Coco-SSD model loaded successfully.");
-            } catch (error) {
-                console.error("Error loading COCO-SSD model:", error);
-            } finally {
-                modelLoadingRef.current = false;
-            }
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+          if (document.hidden && !alertShown) {
+            alert("You have switched tabs. Please focus on the interview page to continue.");
+            setAlertShown(true);
+          } else if (!document.hidden) {
+            setAlertShown(false);
+          }
         };
+    
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+    
+        return () => {
+          document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+      }, [alertShown]);
 
-        loadModel();
-    }, []);
+
+
     
  
 

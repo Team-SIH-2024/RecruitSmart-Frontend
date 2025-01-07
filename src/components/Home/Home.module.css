@@ -4,7 +4,7 @@
 
 
 :root {
-    --primary-color: #1d3557;
+    --primary-color: #1E88E5;
     --secondary-color: #457b9d;
     --accent-color: #a8dadc;
     --light-color: #f1faee;
@@ -23,7 +23,7 @@ body {
 
 /* Button Styles */
 .button {
-    background-color: #457b9d; /* Primary color */
+    background-color: #FF9800; /* Primary color */
     color: white; /* Text color */
     padding: 12px 20px; /* Padding for the button */
     border: none; /* Remove default border */
@@ -37,7 +37,7 @@ body {
 
 /* Hover Effect */
 .button:hover {
-    background-color: #1d3557; /* Darker shade on hover */
+    background-color: #1c98f0; /* Darker shade on hover */
     transform: translateY(-2px); /* Slight lift effect */
 }
 
@@ -64,7 +64,7 @@ body {
 /* Header Styles */
 .mainHeader {
     background: var(--light-color);
-    color: var(--primary-color);
+    color: #1E88E5;
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -81,6 +81,9 @@ body {
 
 .navMenu {
     float: right;
+}
+h1 {
+    color: white;
 }
 
 .navMenu a {
@@ -105,7 +108,7 @@ body {
 }
 
 .navMenu a:hover {
-    color: var(--hover-color);
+    color: #14181c;
 }
 
 .navMenu a:hover::after {

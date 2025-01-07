@@ -127,7 +127,7 @@ const AdminDashboard = () => {
       case "createJobs":
         return (
           <div>
-            <h1>Admin Dashboard</h1>
+          
       {authState?.username ? (
         <p>Welcome, {authState.username}!</p> // Display username
       ) : (
