@@ -319,7 +319,7 @@ const speakText = (text) => {
             </div>
     
             {submitMessage && <p className={styles.score}>{submitMessage}</p>}
-            {score && <p className={styles.score}>{score}</p>}
+            {/* {score && <p className={styles.score}>{score}</p>} */}
         </div>
     );
     
